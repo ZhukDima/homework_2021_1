@@ -17,4 +17,13 @@ QUnit.module('Тестируем функцию anagram', function () {
 
 		assert.deepEqual(anagram(input), output);
 	});
+
+	QUnit.test('Функция не падает на невалидных входных данных', function (assert) {
+		assert.deepEqual(anagram({}), []);
+		assert.deepEqual(anagram('123'), []);
+		assert.deepEqual(anagram(123), []);
+		assert.deepEqual(anagram([123, 123]), []);
+		assert.deepEqual(anagram(undefined), []);
+		assert.deepEqual(anagram(null), []);
+	});
 });
