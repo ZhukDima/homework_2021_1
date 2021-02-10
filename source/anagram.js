@@ -3,8 +3,8 @@
 /**
  * Функция разбивает массив слов на группы слов-анаграмм
  *
- * @param {Array} arrWord - массив слов
- * @return {Array} - группы слов-анаграмм
+ * @param {Array} arrWord массив слов
+ * @return {Array} группы слов-анаграмм
  */
 const anagram = (arrWord) => {
     if (!Array.isArray(arrWord)) {
@@ -21,8 +21,8 @@ const anagram = (arrWord) => {
         return accumulator;
     }, {});
     return Object.keys(anagToArr)
-        .map(elem => anagToArr[elem])
-        .filter(elem => elem.length > 1)
-        .map(elem => elem.sort())
+        .map((elem) => anagToArr[elem])
+        .filter((elem) => elem.length > 1)
+        .map((elem) => elem.sort())
         .sort();
 };
