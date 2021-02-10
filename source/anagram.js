@@ -3,8 +3,9 @@
 /**
  * Функция разбивает массив слов на группы слов-анаграмм
  *
- * @param {Array} arrWord массив слов
- * @return {Array} группы слов-анаграмм
+ * @param {Array.<string>} arrWord массив слов
+ * @return {Array.<Array.<string>>} группы слов-анаграмм
+ * @throws {TypeError}
  */
 const anagram = (arrWord) => {
     if (!Array.isArray(arrWord)) {
