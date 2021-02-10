@@ -15,7 +15,7 @@ const anagram = (arrWord) => {
         if (typeof word !== 'string') {
             throw new TypeError('Array of string was expected');
         }
-        let anag = [...word].sort().join('');
+        const anag = [...word].sort().join('');
         accumulator[anag] = accumulator[anag] !== undefined
             ? accumulator[anag].concat(word)
             : [word];
