@@ -3,22 +3,23 @@
 /**
  * Функция разбивает массив слов на группы слов-анаграмм
  *
- * @param {Array} arrword - массив слов
+ * @param {Array} arrWord - массив слов
  * @return {Array} - группы слов-анаграмм
  */
-const anagram = arrword => {
-    if (!Array.isArray(arrword)) {
-        return [];
+const anagram = (arrWord) => {
+    if (!Array.isArray(arrWord)) {
+        throw new TypeError('Ожидался массив');
     }
-    let anagToArr = {};
-    arrword.forEach(word => {
-        if (typeof word === 'string') {
-            let anag = [...word].sort().join('');
-            anagToArr[anag] = anagToArr[anag] != undefined
-                ? anagToArr[anag].concat(word)
-                : [word];
+    let anagToArr = arrWord.reduce((accumulator, word) => {
+        if (typeof word !== 'string') {
+            throw new TypeError('Ожидался массив строк')
         }
-    });
+        let anag = [...word].sort().join('');
+        accumulator[anag] = accumulator[anag] !== undefined
+            ? accumulator[anag].concat(word)
+            : [word];
+        return accumulator
+    }, {});
     return Object.keys(anagToArr)
         .map(elem => anagToArr[elem])
         .filter(elem => elem.length > 1)
