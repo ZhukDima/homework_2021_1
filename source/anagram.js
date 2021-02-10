@@ -9,11 +9,11 @@
  */
 const anagram = (arrWord) => {
     if (!Array.isArray(arrWord)) {
-        throw new TypeError('Ожидался массив');
+        throw new TypeError('Array is expected');
     }
-    let anagToArr = arrWord.reduce((accumulator, word) => {
+    const anagToArr = arrWord.reduce((accumulator, word) => {
         if (typeof word !== 'string') {
-            throw new TypeError('Ожидался массив строк');
+            throw new TypeError('Array of string was expected');
         }
         let anag = [...word].sort().join('');
         accumulator[anag] = accumulator[anag] !== undefined
