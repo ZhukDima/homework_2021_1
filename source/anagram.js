@@ -12,13 +12,13 @@ const anagram = (arrWord) => {
     }
     let anagToArr = arrWord.reduce((accumulator, word) => {
         if (typeof word !== 'string') {
-            throw new TypeError('Ожидался массив строк')
+            throw new TypeError('Ожидался массив строк');
         }
         let anag = [...word].sort().join('');
         accumulator[anag] = accumulator[anag] !== undefined
             ? accumulator[anag].concat(word)
             : [word];
-        return accumulator
+        return accumulator;
     }, {});
     return Object.keys(anagToArr)
         .map(elem => anagToArr[elem])
